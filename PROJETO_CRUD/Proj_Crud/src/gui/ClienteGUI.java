@@ -52,6 +52,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JFormattedTextField();
         jTextField6 = new javax.swing.JFormattedTextField();
+        btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -119,6 +120,13 @@ public class ClienteGUI extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,42 +135,51 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField6))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField5))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(29, 29, 29)
-                                    .addComponent(jTextField1))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(41, 41, 41)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField3)
-                                        .addComponent(jTextField2))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(14, 14, 14)
-                                .addComponent(jButton4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton3)))
-                        .addContainerGap(27, Short.MAX_VALUE))))
+                                .addComponent(jTextField5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(29, 29, 29)
+                                .addComponent(jTextField1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField2)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton4)
+                                            .addComponent(jButton1))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(156, 156, 156)
+                                                .addComponent(jButton3))
+                                            .addComponent(jTextField6)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnAtualizar)
+                                            .addComponent(jButton2))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addContainerGap(27, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,12 +209,16 @@ public class ClienteGUI extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton3)
+                        .addComponent(btnAtualizar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
                     .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,6 +303,58 @@ public class ClienteGUI extends javax.swing.JFrame {
         TabelaGUI telaTabela = new TabelaGUI();
         telaTabela.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+ Cliente cliente = new Cliente();
+
+// Validação dos campos para garantir que não estejam vazios
+if (jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() ||
+    jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty() ||
+    jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Preencha todos os campos.");
+    return; // Se algum campo estiver vazio, não continua a execução.
+}
+
+// Atribuindo os valores aos atributos do cliente
+cliente.setNome(jTextField1.getText());
+cliente.setCpf(jTextField2.getText());
+cliente.setEmail(jTextField3.getText());
+cliente.setTel(jTextField4.getText());
+cliente.setEnd(jTextField5.getText());
+
+String dataNascimento = jTextField6.getText();
+if (!dataNascimento.isEmpty()) {
+    try {
+        // Tentativa de conversão da data para LocalDate (formato: yyyy-MM-dd)
+        LocalDate data = LocalDate.parse(dataNascimento);
+        cliente.setData_nasc(data);
+    } catch (DateTimeParseException e) {
+        JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato yyyy-MM-dd.");
+        return; // Se a data estiver inválida, não continua.
+    }
+}
+
+// Verificando se o cliente já existe no banco de dados com o CPF fornecido
+ClienteDAO dao = new ClienteDAO();
+Cliente clienteExistente = dao.buscarPorCpf(cliente.getCpf()); // Método que busca o cliente pelo CPF
+
+if (clienteExistente != null) {
+    // Se o cliente já existir, vamos atualizar os dados
+    dao.atualizar(cliente);
+    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " atualizado com sucesso!");
+} else {
+    // Se o cliente não existir, exibe uma mensagem de erro
+    JOptionPane.showMessageDialog(null, "Cliente não encontrado com o CPF " + cliente.getCpf());
+}
+
+// Limpando os campos de entrada
+jTextField1.setText("");
+jTextField2.setText("");
+jTextField3.setText("");
+jTextField4.setText("");
+jTextField5.setText("");
+jTextField6.setText("");
+    }//GEN-LAST:event_btnAtualizarActionPerformed
       
     /**
      * @param args the command line arguments
@@ -319,6 +392,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

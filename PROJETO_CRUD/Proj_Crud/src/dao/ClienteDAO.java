@@ -105,6 +105,81 @@ public class ClienteDAO {
     return clientes;
 }
     
+     public Cliente buscarPorCpf(String cpf) {
+        Cliente cliente = null;
+        String sql = "SELECT * FROM cliente WHERE cli_cpf = ?";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, cpf);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTel(rs.getString("tel"));
+                cliente.setEnd(rs.getString("end"));
+                cliente.setData_nasc(rs.getDate("data_nasc").toLocalDate());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return cliente;
+    }
+    
+     // Método para alterar os dados do cliente
+   public void alterarCliente(String cpf, String nome, String email, String tel, String end) {
+    String sql = "UPDATE cliente SET cli_nome = ?, cli_email = ?, cli_tel = ?, cli_end = ? WHERE cli_cpf = ?";
+
+    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        // Definir os parâmetros para o UPDATE
+        stmt.setString(1, nome);
+        stmt.setString(2, email);
+        stmt.setString(3, tel);
+        stmt.setString(4, end);
+        stmt.setString(5, cpf);  // Alterar com base no CPF
+
+        // Executa a atualização
+        stmt.executeUpdate();
+        
+        // Exibe a confirmação de sucesso
+        JOptionPane.showMessageDialog(null, "Dados atualizados com sucesso!");
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Erro ao atualizar dados: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+   
+    public void atualizar(Cliente cliente) {
+        String sql = "UPDATE cliente SET cli_nome = ?, cli_email = ?, cli_tel = ?, cli_end = ?, cli_data_nasc = ? WHERE cli_cpf = ?";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEmail());
+            stmt.setString(3, cliente.getTel());
+            stmt.setString(4, cliente.getEnd());
+            stmt.setDate(5, Date.valueOf(cliente.getData_nasc()));  // Conversão para java.sql.Date
+            stmt.setString(6, cliente.getCpf());
+            
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para obter a conexão com o banco de dados
+    private Connection getConnection() throws SQLException {
+        // Retorne a sua conexão com o banco de dados aqui.
+        return DriverManager.getConnection("jdbc:mysql://localhost/vendas", "root", "fatec");
+    }
+
+    
    public void deletarCliente(int codigoCliente) {
     String sql = "DELETE FROM cliente WHERE cli_id = ?";
 
